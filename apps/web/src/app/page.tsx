@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getVideos } from "@/lib/api";
 import { Video } from "@repo/shared";
 import FaqSection from "@/components/FaqSection";
+import HeroCard from "@/components/HeroCard";
 
 
 // Helper to convert YouTube URL to Embed URL
@@ -76,32 +77,9 @@ export default async function Home() {
             </div>
           </div>
 
-          {/* Right: Premium 3D Card Image */}
+          {/* Right: Premium 3D Card Image (Interactive Tabbed Slider) */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            {/* Premium Corporate Image */}
-            <div className="relative group">
-              {/* Simple refined backdrop */}
-              <div className="absolute inset-0 bg-slate-100 rounded-[2.5rem] rotate-2 scale-105 opacity-50 transition-transform duration-700"></div>
-
-              {/* Main Card */}
-              <div className="relative w-80 md:w-96 aspect-[3.5/4.5] rounded-[2rem] overflow-hidden shadow-2xl bg-white p-2">
-                <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative">
-                  <img
-                    src="/dr-selami-balci.jpg"
-                    alt="Dr. Selami Balcı"
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
-
-                  {/* Overlay Content */}
-                  <div className="absolute bottom-8 left-8 text-white text-left z-10">
-                    <p className="font-serif text-3xl font-bold tracking-tight">Dr. Selami Balcı</p>
-                    <div className="h-1 w-12 bg-accent-500 my-2 rounded-full"></div>
-                    <p className="text-white/90 text-sm font-medium tracking-wide uppercase">Şehircilik Uzmanı</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <HeroCard />
           </div>
         </div>
       </section>
