@@ -1,6 +1,4 @@
-import { getVideos, getPosts } from "@/lib/api";
-import Link from "next/link";
-import { Video, Post } from "@repo/shared";
+import { getVideos } from "@/lib/api";
 import PressGallery from "@/components/PressGallery";
 
 export const metadata = {
@@ -10,7 +8,6 @@ export const metadata = {
 
 export default async function PressPage() {
     const videos = await getVideos();
-    const posts = await getPosts();
 
     // Helper to get YouTube thumbnail
     const getYoutubeThumbnail = (url: string) => {
@@ -77,30 +74,7 @@ export default async function PressPage() {
                 {/* Press Gallery Section (Written Press) */}
                 <PressGallery />
 
-                {/* Posts/Articles Section */}
-                <section>
-                    <h2 className="text-3xl font-serif font-bold text-slate-900 mb-8 border-l-4 border-slate-900 pl-4">Makaleler & Yazılar</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {posts.map((post) => (
-                            <div key={post.id} className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-slate-300 transition group">
-                                <div className="text-sm font-medium text-accent-700 mb-2">{new Date(post.published_at!).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
-                                <h3 className="text-2xl font-bold text-slate-900 font-serif mb-3 group-hover:text-accent-700 transition">
-                                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                                </h3>
-                                <p className="text-slate-600 leading-relaxed mb-6 line-clamp-3">{post.excerpt}</p>
-                                <Link
-                                    href={`/blog/${post.slug}`}
-                                    className="inline-flex items-center text-sm font-bold text-slate-900 uppercase tracking-wider hover:text-accent-700 transition"
-                                >
-                                    Devamını Oku <span className="ml-2">→</span>
-                                </Link>
-                            </div>
-                        ))}
-                        {posts.length === 0 && (
-                            <p className="text-slate-500 italic">Henüz eklenmiş makale bulunmuyor.</p>
-                        )}
-                    </div>
-                </section>
+
 
             </div>
         </div>
