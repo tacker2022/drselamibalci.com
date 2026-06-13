@@ -119,7 +119,7 @@ const PRESS_ITEMS: PressItem[] = [
     source: "Mall Report",
     date: "Haziran 2026",
     excerpt: "Mall Report dergisinde yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini sunan 2 sayfalık kurumsal tanıtım ilanı.",
-    imagePath: "/dr-selami-balci.jpg",
+    imagePath: "/press/parkexpert_ad_mall_report.jpg",
     link: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/12/",
     transcription: `
       <p class="font-medium text-slate-800">
