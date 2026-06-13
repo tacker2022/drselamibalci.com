@@ -1,5 +1,7 @@
 import { getActivities } from "@/lib/api";
 import { Activity } from "@repo/shared";
+import WorldMapBanner from "@/components/WorldMapBanner";
+import InteractiveGlobe from "@/components/InteractiveGlobe";
 
 export const metadata = {
     title: "Yurtdışı Faaliyetler - Dr. Selami Balcı",
@@ -10,7 +12,7 @@ export default async function InternationalActivitiesPage() {
     const activities = await getActivities();
 
     return (
-        <div className="max-w-5xl mx-auto space-y-16">
+        <div className="max-w-5xl mx-auto space-y-12">
             {/* Header */}
             <header className="text-center space-y-4 pt-12">
                 <h1 className="text-4xl font-bold text-slate-700 font-serif">Yurtdışı Faaliyetleri</h1>
@@ -19,7 +21,11 @@ export default async function InternationalActivitiesPage() {
                 </p>
             </header>
 
-            <div className="grid gap-4 max-w-4xl mx-auto pb-20">
+            {/* Interactive SVG World Map */}
+            <WorldMapBanner />
+
+            {/* Activity Cards */}
+            <div className="grid gap-4 max-w-4xl mx-auto">
                 {activities.map((activity: Activity) => (
                     <div key={activity.id} className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex items-start gap-4 transition hover:shadow-md">
                         {/* Teal Globe Icon Matching Screenshot */}
@@ -44,6 +50,17 @@ export default async function InternationalActivitiesPage() {
                 {activities.length === 0 && (
                     <p className="text-center text-slate-500 italic py-12">Henüz listelenen bir faaliyet bulunmuyor.</p>
                 )}
+            </div>
+
+            {/* 3D Interactive Globe at Bottom */}
+            <div className="bg-gradient-to-br from-slate-50 to-teal-50/30 rounded-3xl border border-slate-100 shadow-sm py-8 px-4 mb-20">
+                <div className="text-center mb-2">
+                    <h2 className="text-2xl font-bold text-slate-800 font-serif">Dünya Üzerindeki İzler</h2>
+                    <p className="text-slate-500 text-sm font-light mt-1">
+                        {activities.length} ülkede gerçekleştirilen proje ve işbirlikleri
+                    </p>
+                </div>
+                <InteractiveGlobe />
             </div>
         </div>
     );
