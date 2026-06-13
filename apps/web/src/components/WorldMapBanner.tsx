@@ -143,11 +143,11 @@ export default function WorldMapBanner() {
       <div className="relative">
         <ComposableMap
           projectionConfig={{
-            scale: 195,
+            scale: 210,
             center: [28, 38],
           }}
           style={{ width: "100%", height: "auto" }}
-          viewBox="0 0 900 440"
+          viewBox="0 115 900 295"
         >
           <defs>
             <radialGradient id="mapGlow" cx="50%" cy="50%" r="50%">
