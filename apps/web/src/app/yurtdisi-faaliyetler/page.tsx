@@ -1,7 +1,6 @@
 import { getActivities } from "@/lib/api";
 import { Activity } from "@repo/shared";
 import WorldMapBanner from "@/components/WorldMapBanner";
-import WorldMapBanner2 from "@/components/WorldMapBanner2";
 import InteractiveGlobe2 from "@/components/InteractiveGlobe2";
 
 export const metadata = {
@@ -22,21 +21,8 @@ export default async function InternationalActivitiesPage() {
                 </p>
             </header>
 
-            {/* Interactive SVG World Map (Design 1) */}
-            <div className="space-y-3">
-                <div className="text-center md:text-left pl-2">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harita Tasarımı 1 (Mevcut Düz Harita)</span>
-                </div>
-                <WorldMapBanner />
-            </div>
-
-            {/* Interactive SVG World Map (Design 2 - Connection Arcs Dashboard) */}
-            <div className="space-y-3">
-                <div className="text-center md:text-left pl-2">
-                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Harita Tasarımı 2 (Yeni Alternatif - Bağlantı Hatlı &amp; Detay Panelli)</span>
-                </div>
-                <WorldMapBanner2 />
-            </div>
+            {/* Interactive SVG World Map */}
+            <WorldMapBanner />
 
             {/* Activity Cards */}
             <div className="grid gap-4 max-w-4xl mx-auto">

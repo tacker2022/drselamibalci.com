@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getVideos } from "@/lib/api";
 import { Video } from "@repo/shared";
 import FaqSection from "@/components/FaqSection";
+import WorldMapBanner2 from "@/components/WorldMapBanner2";
 
 
 // Helper to convert YouTube URL to Embed URL
@@ -243,6 +244,22 @@ export default async function Home() {
 
       {/* SSS (FAQ) Bölümü */}
       <FaqSection />
+
+      {/* Global Faaliyet Haritası Bölümü */}
+      <section className="container max-w-7xl mx-auto px-6">
+        <div className="text-center mb-12 space-y-4">
+          <span className="text-accent-700 font-bold tracking-widest uppercase text-xs bg-accent-50 px-3 py-1 rounded-full">
+            Global Vizyon &amp; Etki Alanı
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold font-serif text-slate-900 leading-tight">
+            Uluslararası Operasyon Ağı
+          </h2>
+          <p className="text-slate-500 max-w-2xl mx-auto text-sm md:text-base font-light leading-relaxed">
+            İstanbul merkezli başlayıp 4 kıtaya uzanan sürdürülebilir şehircilik, otopark yönetimi ve eğitim işbirlikleri.
+          </p>
+        </div>
+        <WorldMapBanner2 />
+      </section>
     </div>
   );
 }
