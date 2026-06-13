@@ -36,7 +36,7 @@ export default async function Home() {
   return (
     <div className="space-y-32 pb-24 overflow-hidden">
       {/* Premium Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
+      <section className="relative pt-12 pb-20 md:pt-16 md:pb-32 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
         {/* Abstract Background Elements */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-100/40 rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-slate-100/60 rounded-full blur-3xl opacity-60 translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
