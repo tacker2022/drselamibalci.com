@@ -10,6 +10,7 @@ interface PressItem {
   excerpt: string;
   imagePath: string;
   transcription: string;
+  link?: string;
 }
 
 const PRESS_ITEMS: PressItem[] = [
@@ -20,6 +21,7 @@ const PRESS_ITEMS: PressItem[] = [
     date: "Haziran 2026",
     excerpt: "İstanbul'daki otopark sorunu ve çözüm önerilerine yönelik hazırlanan yeni kanun önerisi hakkında TODER Yönetim Kurulu Başkanı Dr. Selami Balcı'nın açıklamaları ve değerlendirmeleri.",
     imagePath: "/press/lonca_dergisi_toder.png",
+    link: "https://www.dergi.loncahaber.com/2026/05/17/182-sayi-mayis-2026-lonca-business-network-esnaf-bulteni-dergisi/#flipbook-df_815/15/",
     transcription: `
 # İstanbul’da Otopark Krizi Büyüyor: TODER’den Yeni Yasa Önerisi ve Kritik Uyarılar
 
@@ -104,13 +106,26 @@ export default function PressGallery() {
                 </p>
               </div>
 
-              <button
-                onClick={() => setActiveItem(item)}
-                className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-slate-950 uppercase tracking-wider hover:text-accent-700 transition self-start"
-              >
-                <span>Haber Küpürünü Oku</span>
-                <span className="transform group-hover:translate-x-1 transition">→</span>
-              </button>
+              <div className="mt-5 flex flex-wrap gap-4 items-center">
+                <button
+                  onClick={() => setActiveItem(item)}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-slate-950 uppercase tracking-wider hover:text-accent-700 transition"
+                >
+                  <span>Haber Küpürünü Oku</span>
+                  <span className="transform group-hover:translate-x-1 transition">→</span>
+                </button>
+                {item.link && (
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-accent-700 transition border-l border-slate-200 pl-4"
+                  >
+                    <span>Dergiyi Oku</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -124,11 +139,22 @@ export default function PressGallery() {
             
             {/* Modal Header */}
             <div className="flex justify-between items-center px-6 py-4 md:px-8 md:py-5 border-b border-slate-100 flex-shrink-0 bg-slate-50">
-              <div>
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="text-xs font-bold text-accent-700 uppercase tracking-widest bg-accent-100/50 px-2.5 py-0.5 rounded-md">
                   {activeItem.source}
                 </span>
-                <span className="text-slate-400 text-xs font-medium ml-3">{activeItem.date}</span>
+                <span className="text-slate-400 text-xs font-medium">{activeItem.date}</span>
+                {activeItem.link && (
+                  <a
+                    href={activeItem.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 hover:text-accent-700 transition bg-white px-2.5 py-0.5 rounded-md border border-slate-200 shadow-sm"
+                  >
+                    <span>Dergiden Orijinal Link</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                )}
               </div>
               <button
                 onClick={() => setActiveItem(null)}
