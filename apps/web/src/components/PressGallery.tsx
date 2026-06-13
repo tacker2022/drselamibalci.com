@@ -17,6 +17,7 @@ interface PressItem {
   transcription: string;
   link?: string;
   links?: PressLink[];
+  fullWidth?: boolean;
 }
 
 const PRESS_ITEMS: PressItem[] = [
@@ -121,6 +122,7 @@ const PRESS_ITEMS: PressItem[] = [
     excerpt: "Mall Report dergisinde yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini sunan 2 sayfalık kurumsal tanıtım sayfası.",
     imagePath: "/press/parkexpert_ad_mall_report.png",
     link: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/12/",
+    fullWidth: true,
     transcription: `
       <p class="font-medium text-slate-800">
         Mall Report Haziran 2026 sayısında yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini tanıtan 2 sayfalık kurumsal tanıtım sayfası.
@@ -152,14 +154,23 @@ export default function PressGallery() {
         {PRESS_ITEMS.map((item) => (
           <div
             key={item.id}
-            className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col md:flex-row h-full"
+            className={`group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-slate-100 flex flex-col md:flex-row h-full ${
+              item.fullWidth ? "md:col-span-2" : ""
+            }`}
           >
             {/* Card Left: Image Thumbnail */}
-            <div className="md:w-2/5 relative aspect-[3.5/4.5] md:aspect-auto overflow-hidden bg-slate-100 flex-shrink-0 cursor-pointer" onClick={() => setActiveItem(item)}>
+            <div
+              className={`relative overflow-hidden bg-slate-100 flex-shrink-0 cursor-pointer ${
+                item.fullWidth
+                  ? "aspect-[16/9] md:aspect-auto md:w-1/2 lg:w-[45%]"
+                  : "aspect-[3.5/4.5] md:aspect-auto md:w-2/5"
+              }`}
+              onClick={() => setActiveItem(item)}
+            >
               <img
                 src={item.imagePath}
                 alt={item.title}
-                className="object-cover object-top w-full h-full group-hover:scale-105 transition duration-500"
+                className="object-cover object-top w-full h-full group-hover:scale-[1.02] transition duration-500"
               />
               <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-slate-950/0 transition-colors duration-300 flex items-center justify-center">
                 <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center text-slate-800 shadow-md transform scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition duration-300">
@@ -169,7 +180,7 @@ export default function PressGallery() {
             </div>
 
             {/* Card Right: Text Details */}
-            <div className="p-6 flex flex-col flex-grow justify-between">
+            <div className={`p-6 flex flex-col flex-grow justify-between ${item.fullWidth ? "md:p-8" : ""}`}>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <span className="bg-accent-50 text-accent-700 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
@@ -177,10 +188,15 @@ export default function PressGallery() {
                   </span>
                   <span className="text-slate-400 text-xs font-medium">{item.date}</span>
                 </div>
-                <h3 className="font-bold text-slate-900 text-lg md:text-xl group-hover:text-accent-700 transition leading-snug cursor-pointer" onClick={() => setActiveItem(item)}>
+                <h3
+                  className={`font-bold text-slate-900 group-hover:text-accent-700 transition leading-snug cursor-pointer ${
+                    item.fullWidth ? "text-xl md:text-2xl" : "text-lg md:text-xl"
+                  }`}
+                  onClick={() => setActiveItem(item)}
+                >
                   {item.title}
                 </h3>
-                <p className="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                <p className={`text-slate-500 leading-relaxed line-clamp-3 ${item.fullWidth ? "text-sm md:text-base" : "text-sm"}`}>
                   {item.excerpt}
                 </p>
               </div>
