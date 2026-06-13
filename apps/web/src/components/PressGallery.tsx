@@ -89,7 +89,7 @@ const PRESS_ITEMS: PressItem[] = [
         <li><strong>Akıllı Yönlendirme ve Doluluk Analizi:</strong> Ziyaretçileri anlık olarak boş alanlara en kısa yoldan yönlendirerek içerideki trafik sıkışıklığını ve karbon salınımını önlüyor.</li>
         <li><strong>Gelişmiş Plaka Tanıma (LPR) Sistemi:</strong> Bilet veya kart kaybetme sorununu tamamen ortadan kaldırarak, giriş ve çıkış sürelerini saniyelere indiriyoruz.</li>
         <li><strong>Esnek Ödeme Entegrasyonları:</strong> Mobil uygulama, QR kod ve temassız ödeme seçenekleriyle gişe kuyruklarını tarihe karıştırıyoruz.</li>
-        <li><strong>Gerçek Zamanlı Yönetim Paneli:</strong> AVM yönetimi, yazılımımız üzerinden anlık doluluk oranlarını, ziyaretçi yoğunluk saatlerini ve finansal raporları tek bir ekrandan anında takip edebiliyor.</li>
+        <li><strong>Gerçek Zamanlı Yönetim Paneli:</strong> AVM verileri yazılımımız üzerinden anlık doluluk oranlarını, ziyaretçi yoğunluk saatlerini ve finansal raporları tek bir ekrandan anında takip edebiliyor.</li>
       </ul>
       <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Bu teknolojik altyapının AVM yönetimlerine ve yatırımcılarına sunduğu en büyük avantaj nedir?</h3>
       <p>
@@ -118,20 +118,20 @@ const PRESS_ITEMS: PressItem[] = [
     title: "ParkExpert Global Otopark Yönetimi Kurumsal Tanıtımı",
     source: "Mall Report",
     date: "Haziran 2026",
-    excerpt: "Mall Report dergisinde yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini sunan 2 sayfalık kurumsal tanıtım ilanı.",
+    excerpt: "Mall Report dergisinde yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini sunan 2 sayfalık kurumsal tanıtım sayfası.",
     imagePath: "/press/parkexpert_ad_mall_report.jpg",
     link: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/12/",
     transcription: `
       <p class="font-medium text-slate-800">
-        Mall Report Haziran 2026 sayısında yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini tanıtan 2 sayfalık kurumsal reklam sayfası.
+        Mall Report Haziran 2026 sayısında yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini tanıtan 2 sayfalık kurumsal tanıtım sayfası.
       </p>
       <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4 my-6">
-        <h3 class="font-serif font-bold text-slate-800 text-base">REKLAM İÇERİĞİ VE DETAYLARI:</h3>
+        <h3 class="font-serif font-bold text-slate-800 text-base">TANITIM İÇERİĞİ VE DETAYLARI:</h3>
         <p class="text-sm">
-          Bu kurumsal ilan, ParkExpert markasının geliştirdiği yapay zeka destekli otopark yönetim sistemi (OYBİS), plaka tanıma entegrasyonları, mobil ödeme teknolojileri ve müşteri memnuniyeti süreçlerini görsel ve teknik verilerle tanıtmaktadır.
+          Bu kurumsal tanıtım, ParkExpert markasının geliştirdiği yapay zeka destekli otopark yönetim sistemi (OYBİS), plaka tanıma entegrasyonları, mobil ödeme teknolojileri ve müşteri memnuniyeti süreçlerini görsel ve teknik verilerle tanıtmaktadır.
         </p>
         <p class="text-sm">
-          İlgili dijital reklama doğrudan Mall Report e-dergisinin 12. sayfasından ulaşabilirsiniz.
+          İlgili dijital tanıtıma doğrudan Mall Report e-dergisinin 12. sayfasından ulaşabilirsiniz.
         </p>
       </div>
     `
@@ -140,6 +140,7 @@ const PRESS_ITEMS: PressItem[] = [
 
 export default function PressGallery() {
   const [activeItem, setActiveItem] = useState<PressItem | null>(null);
+  const [zoomedImage, setZoomedImage] = useState<string | null>(null);
 
   return (
     <section>
@@ -274,14 +275,17 @@ export default function PressGallery() {
               
               {/* Left Column: Interactive Image View */}
               <div className="lg:w-1/2 bg-slate-900 flex items-center justify-center p-4 border-b lg:border-b-0 lg:border-r border-slate-200 overflow-y-auto max-h-[40vh] lg:max-h-full">
-                <div className="relative max-h-full max-w-full group/image">
+                <div 
+                  className="relative max-h-full max-w-full group/image cursor-zoom-in"
+                  onClick={() => setZoomedImage(activeItem.imagePath)}
+                >
                   <img
                     src={activeItem.imagePath}
                     alt={activeItem.title}
-                    className="max-h-[35vh] lg:max-h-[70vh] object-contain rounded-lg shadow-lg"
+                    className="max-h-[35vh] lg:max-h-[70vh] object-contain rounded-lg shadow-lg hover:scale-[1.02] transition duration-300"
                   />
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/60 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full pointer-events-none opacity-0 group-hover/image:opacity-100 transition-opacity">
-                    Haber Küpürü Orijinal Görseli
+                    Görseli Büyütmek İçin Tıklayın
                   </div>
                 </div>
               </div>
@@ -307,6 +311,26 @@ export default function PressGallery() {
             </div>
 
           </div>
+        </div>
+      )}
+
+      {/* Full screen Zoom Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 z-[60] bg-slate-950/90 flex items-center justify-center cursor-zoom-out p-4 animate-fade-in"
+          onClick={() => setZoomedImage(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+            onClick={() => setZoomedImage(null)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+          <img
+            src={zoomedImage}
+            alt="Büyütülmüş Görsel"
+            className="max-h-full max-w-full object-contain rounded-lg shadow-2xl animate-scale-up"
+          />
         </div>
       )}
     </section>
