@@ -333,20 +333,25 @@ export default function PressGallery() {
       {/* Full screen Zoom Overlay */}
       {zoomedImage && (
         <div 
-          className="fixed inset-0 z-[60] bg-slate-950/90 flex items-center justify-center cursor-zoom-out p-4 animate-fade-in"
+          className="fixed inset-0 z-[60] bg-slate-950/95 flex items-start justify-center overflow-y-auto p-4 md:p-8 cursor-zoom-out animate-fade-in"
           onClick={() => setZoomedImage(null)}
         >
           <button 
-            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition"
+            className="fixed top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition z-50 shadow-lg"
             onClick={() => setZoomedImage(null)}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
           </button>
-          <img
-            src={zoomedImage}
-            alt="Büyütülmüş Görsel"
-            className="max-h-full max-w-full object-contain rounded-lg shadow-2xl animate-scale-up"
-          />
+          
+          <div className="relative max-w-3xl w-full my-auto animate-scale-up" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={zoomedImage}
+              alt="Büyütülmüş Görsel"
+              className="w-full h-auto rounded-lg shadow-2xl cursor-zoom-out border border-white/10"
+              style={{ imageRendering: "-webkit-optimize-contrast" }}
+              onClick={() => setZoomedImage(null)}
+            />
+          </div>
         </div>
       )}
     </section>
