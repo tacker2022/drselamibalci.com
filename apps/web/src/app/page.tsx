@@ -123,6 +123,55 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ParkExpert Showcase Section */}
+      <section className="container max-w-7xl mx-auto px-6 py-12">
+        <div className="grid lg:grid-cols-12 gap-12 items-center bg-white rounded-[2.5rem] p-8 md:p-12 border border-slate-100 shadow-sm overflow-hidden relative group">
+          {/* Abstract Background Element */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-accent-50/40 rounded-full blur-3xl opacity-50 pointer-events-none"></div>
+
+          {/* Left Column: Image */}
+          <div className="lg:col-span-6 relative rounded-2xl overflow-hidden aspect-[3/2] border border-slate-100 shadow-md">
+            <img
+              src="/press/parkexpert_ad_mall_report.png"
+              alt="ParkExpert Akıllı Otopark Çözümleri"
+              className="object-cover w-full h-full transform group-hover:scale-[1.01] transition duration-700"
+            />
+          </div>
+
+          {/* Right Column: Copy */}
+          <div className="lg:col-span-6 flex flex-col justify-center space-y-6">
+            <div className="space-y-2">
+              <span className="text-accent-700 font-bold tracking-widest uppercase text-xs bg-accent-50 px-3 py-1 rounded-full">
+                Öne Çıkan Girişim
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-serif leading-tight">
+                ParkExpert: Dijital ve Akıllı Otopark Dönüşümü
+              </h2>
+            </div>
+            
+            <p className="text-slate-600 font-light leading-relaxed text-base md:text-lg">
+              Standart otopark işletmeciliğini yapay zekâ, akıllı yönlendirme ve bulut tabanlı otomasyon yazılımlarıyla yeniden tanımlıyoruz. Plaka tanıma (LPR), esnek mobil ödeme altyapıları ve anlık veri analitiğiyle AVM otoparklarında ve kentsel mobilitede stresi sıfıra indiriyoruz.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Link 
+                href="/yayinlar-ve-basin" 
+                className="px-6 py-3 bg-accent-700 text-white rounded-xl font-semibold hover:bg-accent-800 transition duration-300 shadow-md hover:shadow-lg flex items-center gap-2 text-sm"
+              >
+                <span>Tanıtım Küpürünü Oku</span>
+                <span>→</span>
+              </Link>
+              <Link 
+                href="/uzmanlik-alanlari" 
+                className="px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-xl font-semibold hover:bg-slate-50 hover:border-slate-300 transition duration-300 text-sm"
+              >
+                Uzmanlık Alanları
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TV Videos Section */}
       {tvVideos.length > 0 && (
         <section className="container max-w-7xl mx-auto px-6">
