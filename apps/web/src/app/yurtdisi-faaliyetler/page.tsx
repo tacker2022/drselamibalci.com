@@ -1,7 +1,6 @@
 import { getActivities } from "@/lib/api";
 import { Activity } from "@repo/shared";
 import WorldMapBanner from "@/components/WorldMapBanner";
-import InteractiveGlobe from "@/components/InteractiveGlobe";
 import InteractiveGlobe2 from "@/components/InteractiveGlobe2";
 
 export const metadata = {
@@ -53,21 +52,10 @@ export default async function InternationalActivitiesPage() {
                 )}
             </div>
 
-            {/* 3D Interactive Globe at Bottom (Design 1) */}
-            <div className="bg-gradient-to-br from-slate-50 to-teal-50/30 rounded-3xl border border-slate-100 shadow-sm py-8 px-4 mb-8">
-                <div className="text-center mb-4">
-                    <h2 className="text-2xl font-bold text-slate-800 font-serif">Dünya Üzerindeki İzler (Birinci Tasarım)</h2>
-                    <p className="text-slate-500 text-sm font-light mt-1">
-                        {activities.length} ülkede gerçekleştirilen proje ve işbirlikleri (Koyu Mavi / SVG Tasarımı)
-                    </p>
-                </div>
-                <InteractiveGlobe />
-            </div>
-
-            {/* Alternative 3D Interactive Globe (Design 2 - Gemini) */}
+            {/* 3D Interactive Globe at Bottom (Design 2 - Gemini) */}
             <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 rounded-3xl border border-slate-800 shadow-2xl py-8 px-4 mb-20">
                 <div className="text-center mb-6">
-                    <h2 className="text-2xl font-bold text-slate-100 font-serif">Dünya Üzerindeki İzler (Alternatif İkinci Tasarım)</h2>
+                    <h2 className="text-2xl font-bold text-slate-100 font-serif">Dünya Üzerindeki İzler</h2>
                     <p className="text-slate-400 text-sm font-light mt-1">
                         Holografik altın rengi küre, çift eksenli serbest döndürme ve kategori filtreleme (Canvas Tasarımı)
                     </p>
