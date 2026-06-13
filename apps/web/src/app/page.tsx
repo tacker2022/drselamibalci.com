@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getVideos } from "@/lib/api";
 import { Video } from "@repo/shared";
+import FaqSection from "@/components/FaqSection";
 
 
 // Helper to convert YouTube URL to Embed URL
@@ -190,6 +191,9 @@ export default async function Home() {
           </div>
         </section>
       )}
+
+      {/* SSS (FAQ) Bölümü */}
+      <FaqSection />
     </div>
   );
 }

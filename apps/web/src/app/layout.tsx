@@ -55,25 +55,89 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Dr. Selami Balcı",
-    "jobTitle": "Kurucu & Şehir Plancısı",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Expert Grup"
-    },
-    "url": "https://drselamibalci.com",
-    "image": "https://drselamibalci.com/dr-selami-balci.jpg",
-    "description": "Dr. Selami Balcı, sürdürülebilir şehircilik ve kentsel dönüşüm alanında uzmanlaşmış bir şehir plancısı ve akademisyendir.",
-    "alumniOf": [
+    "@graph": [
       {
-        "@type": "CollegeOrUniversity",
-        "name": "İstanbul Teknik Üniversitesi"
+        "@type": "Person",
+        "@id": "https://drselamibalci.com/#person",
+        "name": "Dr. Selami Balcı",
+        "jobTitle": "Kurucu & Şehir Plancısı",
+        "description": "Dr. Selami Balcı, sürdürülebilir şehircilik, kentsel dönüşüm ve akıllı otopark yönetimi alanlarında uzmanlaşmış bir şehir plancısı, akademisyen ve Expert Grup kurucusudur.",
+        "url": "https://drselamibalci.com",
+        "image": "https://drselamibalci.com/dr-selami-balci.jpg",
+        "sameAs": [
+          "https://www.linkedin.com/in/drselamibalci",
+          "https://expertimar.com",
+          "https://parkexpert.net"
+        ],
+        "knowsAbout": [
+          "Sürdürülebilir Şehircilik",
+          "Kentsel Dönüşüm",
+          "Otopark Yönetimi",
+          "Akıllı Şehirler",
+          "Gayrimenkul Değerleme",
+          "Arazi Yönetimi"
+        ],
+        "worksFor": [
+          {
+            "@type": "Organization",
+            "name": "Expert Grup",
+            "url": "https://expertimar.com"
+          },
+          {
+            "@type": "Organization",
+            "name": "TODER (Tüm Otopark Entegratörleri, Yatırımcıları ve İşletmecileri Derneği)",
+            "url": "https://drselamibalci.com"
+          },
+          {
+            "@type": "Organization",
+            "name": "ParkExpert",
+            "url": "https://parkexpert.net"
+          }
+        ],
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Yıldız Teknik Üniversitesi",
+            "department": "Harita Mühendisliği"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Yeditepe Üniversitesi",
+            "department": "MBA (Pazarlama, Finans Yönetimi & Muhasebe)"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Okan Üniversitesi",
+            "department": "Arazi Yönetimi (Doktora)"
+          }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://drselamibalci.com/#toder",
+        "name": "TODER (Tüm Otopark Entegratörleri, Yatırımcıları ve İşletmecileri Derneği)",
+        "founder": {
+          "@id": "https://drselamibalci.com/#person"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://drselamibalci.com/#parkexpert",
+        "name": "ParkExpert",
+        "url": "https://parkexpert.net",
+        "founder": {
+          "@id": "https://drselamibalci.com/#person"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://drselamibalci.com/#expertgrup",
+        "name": "Expert Grup",
+        "url": "https://expertimar.com",
+        "founder": {
+          "@id": "https://drselamibalci.com/#person"
+        }
       }
-    ],
-    "sameAs": [
-      "https://www.linkedin.com/in/drselamibalci",
-      "https://expertimar.com"
     ]
   };
 

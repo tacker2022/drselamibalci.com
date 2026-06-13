@@ -1,6 +1,7 @@
 import { getVideos, getPosts } from "@/lib/api";
 import Link from "next/link";
 import { Video, Post } from "@repo/shared";
+import PressGallery from "@/components/PressGallery";
 
 export const metadata = {
     title: "Yayınlar ve Basın - Dr. Selami Balcı",
@@ -72,6 +73,9 @@ export default async function PressPage() {
                         ))}
                     </div>
                 </section>
+
+                {/* Press Gallery Section (Written Press) */}
+                <PressGallery />
 
                 {/* Posts/Articles Section */}
                 <section>
