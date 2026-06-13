@@ -27,7 +27,7 @@ const PRESS_ITEMS: PressItem[] = [
     source: "Lonca Dergisi",
     date: "Haziran 2026",
     excerpt: "İstanbul'daki otopark sorunu ve çözüm önerilerine yönelik hazırlanan yeni kanun önerisi hakkında TODER Yönetim Kurulu Başkanı Dr. Selami Balcı'nın açıklamaları ve değerlendirmeleri.",
-    imagePath: "/press/lonca_dergisi_toder.png",
+    imagePath: "/press/lonca_dergisi_toder.jpg",
     link: "https://www.dergi.loncahaber.com/2026/05/17/182-sayi-mayis-2026-lonca-business-network-esnaf-bulteni-dergisi/#flipbook-df_815/15/",
     transcription: `
       <p class="font-medium text-slate-800">
