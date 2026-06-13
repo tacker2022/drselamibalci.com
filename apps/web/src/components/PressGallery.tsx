@@ -2,6 +2,11 @@
 
 import { useState } from "react";
 
+interface PressLink {
+  label: string;
+  url: string;
+}
+
 interface PressItem {
   id: string;
   title: string;
@@ -11,6 +16,7 @@ interface PressItem {
   imagePath: string;
   transcription: string;
   link?: string;
+  links?: PressLink[];
 }
 
 const PRESS_ITEMS: PressItem[] = [
@@ -23,40 +29,112 @@ const PRESS_ITEMS: PressItem[] = [
     imagePath: "/press/lonca_dergisi_toder.png",
     link: "https://www.dergi.loncahaber.com/2026/05/17/182-sayi-mayis-2026-lonca-business-network-esnaf-bulteni-dergisi/#flipbook-df_815/15/",
     transcription: `
-# İstanbul’da Otopark Krizi Büyüyor: TODER’den Yeni Yasa Önerisi ve Kritik Uyarılar
-
-İstanbul’da giderek artan araç sayısı ve yetersiz otopark altyapısı, şehir yaşamını zorlaştıran en önemli sorunlardan biri haline geldi. Özellikle merkezi lokasyonlarda yaşanan park yeri sıkıntısı, hem sürücüler hem de şehir trafiği açısından ciddi bir problem oluştururken, konuya yönelik yeni bir kanun düzenlemesi önerisi gündeme geldi.
-
-Uzmanlara göre mevcut otopark kapasitesi, İstanbul’daki araç yoğunluğunu karşılamaktan oldukça uzak. Bu durum sürücülerin uzun süre park yeri aramasına, trafik yoğunluğunun artmasına ve günlük yaşamda ciddi zaman kayıplarına neden oluyor. AVM çevreleri, iş merkezleri ve yoğun yerleşim alanlarında sorun daha da belirgin hale geliyor.
-
-## YENİ DÜZENLEME İLE NELER DEĞİŞECEK?
-
-Gündeme gelen kanun önerisi kapsamında;
-* Yeni yapılacak binalarda otopark zorunluluğunun daha sık denetlenmesi
-* Mevcut otopark alanlarının daha verimli kullanılması
-* Kamu ve özel sektör iş birlikleriyle yeni yatırımların teşvik edilmesi
-* Akıllı otopark sistemleri ile kapasite yönetiminin güçlendirilmesi
-
-gibi önemli adımlar öne çıkıyor.
-
-## SORUN SADECE PARK YERİ DEĞİL
-
-Otopark problemi yalnızca araç park etmekten ibaret değil. Park yeri arayan araçların trafikte oluşturduğu ek yük; yakıt tüketimini artırırken, çevresel etkileri de beraberinde getiriyor. Uzmanlar, bu durumun şehir içi ulaşım verimliğini doğrudan etkilediğini vurguluyor.
-
-## SEKTÖR TEMSİLCİLERİNDEN NET MESAJ: "ARTIK AKILLI SİSTEM ŞART"
-
-Tüm Otopark Entegratörleri, Yatırımcıları ve İşletmecileri Derneği (TODER) de konuya ilişkin önemli değerlendirmelerde bulundu.
-
-Derneğin Yönetim Kurulu Başkanı **Dr. Selami Balcı**, İstanbul'daki otopark sorununun yalnızca fiziki alan eksikliğiyle açıklanamayacağını belirterek şu ifadeleri kullandı:
-
-> "Otopark yönetimi artık klasik yöntemlerle çözülebilecek bir konu değil. Veri odaklı, teknolojik ve entegre sistemlerin devreye alınması gerekiyor. Doğru planlama ve sürdürülebilir yatırımlar ile şehir içi trafik ciddi anlamda rahatlatılabilir."
-
-Balcı ayrıca, otopark yatırımlarının şehir planlamasının ayrılmaz bir parçası haline gelmesi gerektiğini ve kamu özel sektör iş birliklerinin artırılmasının kritik önem taşıdığını vurguladı.
-
-## YENİ DÖNEM: VERİ VE TEKNOLOJİ ODAKLI OTOPARK YÖNETİMİ
-
-Sektör temsilcilerine göre otopark yönetimi artık yalnızca fiziki alan üretmekten ibaret değil; veri analizi, dijital altyapı ve operasyonel verimlilikle birlikte ele alınması gereken stratejik bir alan haline geldi. Akıllı yönlendirme sistemleri, anlık doluluk takibi ve entegre yazılımlar sayesinde mevcut kapasitenin daha etkin kullanılması mümkün hale gelirken, bu dönüşümün Türkiye genelinde yaygınlaştırılması gerektiği ifade ediliyor.
-`
+      <p class="font-medium text-slate-800">
+        İstanbul’da giderek artan araç sayısı ve yetersiz otopark altyapısı, şehir yaşamını zorlaştıran en önemli sorunlardan biri haline geldi. Özellikle kentin merkezi lokasyonlarında yaşanan park yeri krizine karşı TODER'den kritik bir kanun düzenlemesi teklifi sunuldu.
+      </p>
+      <p>
+        Uzman kadrolara göre mevcut kapasiteler, İstanbul genelindeki araç yoğunluğunu taşımaktan oldukça uzak kalıyor. Bu durum, günlük hayatta sürücülerin uzun dakikalar boyunca park yeri aramasına, dolayısıyla gereksiz yakıt sarfiyatına ve zaman kaybına yol açarak kent içi trafiği içinden çıkılmaz hale getiriyor.
+      </p>
+      <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-3 my-6">
+        <h3 class="font-serif font-bold text-slate-800 text-base">YENİ DÜZENLEME İLE NELER DEĞİŞECEK?</h3>
+        <ul class="list-disc pl-5 space-y-1 text-sm">
+          <li>Yeni inşa edilen binalardaki otopark zorunluluklarının sıkı denetlenmesi</li>
+          <li>Mevcut pasif otopark alanlarının yüksek verimlilikle revize edilmesi</li>
+          <li>Kamu ve özel sektör iş birlikleri (KÖİ) modellerinin yaygınlaştırılması</li>
+          <li>Kapasite yönetimini güçlendirecek akıllı otopark yazılımlarının devreye alınması</li>
+        </ul>
+      </div>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">SORUN SADECE PARK YERİ DEĞİL</h3>
+      <p>
+        Otopark konusu salt araç park etmekten ibaret görülemez. Park yeri aramak amacıyla yollarda dolanan araçların trafikte oluşturduğu ek yük; karbon salınımını artırırken, çevre kirliliği ve stres gibi sosyo-ekonomik olumsuzlukları da tetikliyor.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">TODER BAŞKANI DR. SELAMİ BALCI: "ARTIK AKILLI SİSTEM ŞART"</h3>
+      <blockquote class="border-l-4 border-accent-600 bg-accent-50/30 p-5 rounded-r-2xl italic text-slate-700 font-serif text-base my-6">
+        "Otopark yönetimi artık klasik yöntemlerle çözülebilecek bir konu değil. Veri odaklı, teknolojik ve entegre sistemlerin devreye alınması gerekiyor. Doğru planlama ve sürdürülebilir yatırımlar ile şehir içi trafik ciddi anlamda rahatlatılabilir."
+      </blockquote>
+      <p>
+        Dr. Selami Balcı, otopark yatırımlarının şehir planlama süreçlerinin ayrılmaz bir parçası olarak görülmesi gerektiğini ve kamu ile özel sektör iş birliklerinin bu alanda kritik bir kaldıraç rolü üstleneceğini vurguladı.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">YENİ DÖNEM: VERİ VE TEKNOLOJİ ODAKLI OTOPARK YÖNETİMİ</h3>
+      <p>
+        Sektörün vizyoner liderlerine göre otopark işletmeciliği; akıllı yönlendirme yazılımları, anlık doluluk takibi ve entegre veri analitiği sayesinde stratejik bir şehir lojistiği yönetimine dönüşmektedir. Bu teknolojik dönüşümün Türkiye geneline yayılması gerektiğinin altı çiziliyor.
+      </p>
+    `
+  },
+  {
+    id: "mall-report-2026-haziran-roportaj",
+    title: "Otoparkta Başlayan Memnuniyet, AVM’de Değere Dönüşüyor",
+    source: "Mall Report",
+    date: "Haziran 2026",
+    excerpt: "ParkExpert Kurucusu Dr. Selami Balcı'nın AVM otopark işletmeciliğinde müşteri memnuniyeti, yapay zeka entegrasyonu, veri analitiği ve dijital dönüşüm vizyonunu paylaştığı kapsamlı röportaj.",
+    imagePath: "/dr-selami-balci.jpg",
+    links: [
+      { label: "Web Makalesi", url: "https://mallreport.com.tr/2026/06/02/otoparkta-baslayan-memnuniyet-avmde-degere-donusuyor/?amp=1" },
+      { label: "Dijital Dergi (Sayfa 64)", url: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/64/" },
+      { label: "LinkedIn Paylaşımı", url: "https://www.linkedin.com/posts/mallreport_parkexpert-global-otopark-y%C3%B6netimi-kurucusu-share-7467555888707493890-9Gj4/?utm_source=social_share_send&utm_medium=ios_app&rcm=ACoAAFHUVm8BMD4LHvdFbaYY-Dn-VymJXh5Wym4&utm_campaign=copy_link" }
+    ],
+    transcription: `
+      <p class="font-medium text-slate-800">
+        ParkExpert Kurucusu Dr. Selami Balcı, standart otopark işletmeciliğini yapay zeka ve dijital otomasyonla yeniden tanımlayan yeni yazılımlarının detaylarını paylaşırken; plaka tanıma, esnek mobil ödeme ve akıllı yönlendirme sistemleriyle gişe kuyruklarını ve içerideki trafik sıkışıklığını tarihe gömdüklerini belirtti.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">AVM otoparklarının yönetimi müşteri deneyimini nasıl etkiliyor? Sizin bu noktadaki hizmet anlayışınız nedir?</h3>
+      <p>
+        Ziyaretçinin AVM deneyimi mağazalarda veya yemek alanlarında değil, doğrudan otopark bariyerinde başlar. Eğer bir misafir aracına yer bulmakta zorlanır, karmaşık yönlendirmeler içinde kaybolur veya çıkışta uzun kuyruklar beklerse, içerideki mağazaların sunduğu kusursuz hizmet bile bu olumsuz ilk izlenimi silmeye yetmeyebilir. Bizim hizmet anlayışımız; ziyaretçiye stresi sıfıra indirilmiş, hızlı ve güvenli bir park deneyimi sunarken, AVM yönetimine de tüm operasyonel yükü devraldığımız şeffaf ve profesyonel bir altyapı sağlamaktır.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Yakın zamanda sektörle buluşturduğunuz ve oldukça merak edilen yeni bir yazılımınız var. Bu yazılımın temel özellikleri nelerdir ve mevcut otopark yönetiminde neleri değiştiriyor?</h3>
+      <p>
+        Yeni yazılımımız, standart bir otopark işletmeciliğini tamamen veri odaklı, akıllı bir ekosisteme dönüştürüyor. Amacımız sadece araçları park ettirmek değil, süreci baştan sona dijitalleştirmek. Öne çıkan bazı yeniliklerimizi şu şekilde sıralayabilirim:
+      </p>
+      <ul class="list-disc pl-5 space-y-1 my-4">
+        <li><strong>Akıllı Yönlendirme ve Doluluk Analizi:</strong> Ziyaretçileri anlık olarak boş alanlara en kısa yoldan yönlendirerek içerideki trafik sıkışıklığını ve karbon salınımını önlüyor.</li>
+        <li><strong>Gelişmiş Plaka Tanıma (LPR) Sistemi:</strong> Bilet veya kart kaybetme sorununu tamamen ortadan kaldırarak, giriş ve çıkış sürelerini saniyelere indiriyoruz.</li>
+        <li><strong>Esnek Ödeme Entegrasyonları:</strong> Mobil uygulama, QR kod ve temassız ödeme seçenekleriyle gişe kuyruklarını tarihe karıştırıyoruz.</li>
+        <li><strong>Gerçek Zamanlı Yönetim Paneli:</strong> AVM yönetimi, yazılımımız üzerinden anlık doluluk oranlarını, ziyaretçi yoğunluk saatlerini ve finansal raporları tek bir ekrandan anında takip edebiliyor.</li>
+      </ul>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Bu teknolojik altyapının AVM yönetimlerine ve yatırımcılarına sunduğu en büyük avantaj nedir?</h3>
+      <p>
+        En büyük avantaj kesinlikle operasyonel şeffaflık ve ciddi bir maliyet optimizasyonu. Yazılımımızın getirdiği otomasyon sayesinde insan kaynaklı hatalar minimuma iniyor ve süreçler hızlanıyor. AVM yönetimleri, otoparkı artık bir maliyet, şikayet veya sorun merkezi olarak değil; kendi kendini kusursuz yöneten, müşteri memnuniyetini artıran ve güvenilir veri üreten dijital bir varlık olarak görüyor.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Dijital dönüşüm ziyaretçi deneyimini nasıl etkiliyor?</h3>
+      <p>
+        Günümüz ziyaretçisi hızlı ve sorunsuz bir deneyim bekliyor. Plaka tanıma sistemleri sayesinde çıkış noktalarında bekleme süreleri azalıyor, dijital ödeme yöntemleri sayesinde işlemler hızlanıyor ve abonelik süreçleri çevrimiçi olarak yönetilebiliyor. Bizim yaklaşımımızda amaç, yalnızca araç giriş çıkışını kontrol etmek değil; ziyaretçinin AVM’ye giriş anından çıkışına kadar kesintisiz ve konforlu bir deneyim yaşamasını sağlamaktır.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Yapay zeka ve veri analitiğinin otopark yönetimindeki rolü nedir?</h3>
+      <p>
+        Otoparklar aslında çok değerli verilerin üretildiği alanlardır. Yapay zeka destekli analizler sayesinde yoğunluk tahminleri yapılabiliyor, operasyonel planlamalar optimize edilebiliyor ve yatırım kararları daha sağlıklı alınabiliyor. Özellikle büyük ölçekli AVM’lerde elde edilen verilerin doğru yorumlanması; personel planlamasından kampanya yönetimine kadar birçok konuda yönetime önemli avantajlar sağlıyor.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Gelecekte AVM otoparklarını neler bekliyor?</h3>
+      <p>
+        Yakın gelecekte otoparklar yalnızca park alanı olmaktan çıkacak. Elektrikli araç şarj altyapıları, mobil uygulama entegrasyonları, temassız geçiş sistemleri ve yapay zeka destekli yönetim modelleri standart hale gelecek. Biz ParkExpert olarak bu dönüşümün öncülerinden biri olmayı hedefliyoruz. Teknoloji yatırımlarımızı ve yazılım geliştirme çalışmalarımızı bu vizyon doğrultusunda sürdürüyoruz. AVM’lerde otopark artık yalnızca bir operasyon kalemi değil; ziyaretçi memnuniyetini, marka algısını ve işletme verimliliğini doğrudan etkileyen stratejik bir unsurdur.
+      </p>
+      <h3 class="font-serif font-bold text-slate-800 text-lg pt-4">Son olarak, perakende sektörüne ve AVM yatırımcılarına mesajınız nedir?</h3>
+      <p>
+        Rekabetin bu kadar yoğun olduğu bir dönemde, fark yaratan şey detaylarda gizli olan ziyaretçi konforudur. Yeni yazılımımız ve uçtan uca profesyonel otopark hizmetimizle, AVM’lerin bu konforu en üst düzeye çıkarması için güvenilir bir teknoloji ortağı olmaya devam edeceğiz.
+      </p>
+    `
+  },
+  {
+    id: "mall-report-2026-haziran-reklam",
+    title: "ParkExpert Global Otopark Yönetimi Kurumsal Tanıtımı",
+    source: "Mall Report",
+    date: "Haziran 2026",
+    excerpt: "Mall Report dergisinde yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini sunan 2 sayfalık kurumsal tanıtım ilanı.",
+    imagePath: "/dr-selami-balci.jpg",
+    link: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/12/",
+    transcription: `
+      <p class="font-medium text-slate-800">
+        Mall Report Haziran 2026 sayısında yayınlanan, ParkExpert'in akıllı otopark çözümlerini, dijital entegrasyonlarını ve AVM/şehir lojistiği yönetim modellerini tanıtan 2 sayfalık kurumsal reklam sayfası.
+      </p>
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 space-y-4 my-6">
+        <h3 class="font-serif font-bold text-slate-800 text-base">REKLAM İÇERİĞİ VE DETAYLARI:</h3>
+        <p class="text-sm">
+          Bu kurumsal ilan, ParkExpert markasının geliştirdiği yapay zeka destekli otopark yönetim sistemi (OYBİS), plaka tanıma entegrasyonları, mobil ödeme teknolojileri ve müşteri memnuniyeti süreçlerini görsel ve teknik verilerle tanıtmaktadır.
+        </p>
+        <p class="text-sm">
+          İlgili dijital reklama doğrudan Mall Report e-dergisinin 12. sayfasından ulaşabilirsiniz.
+        </p>
+      </div>
+    `
   }
 ];
 
@@ -111,10 +189,23 @@ export default function PressGallery() {
                   onClick={() => setActiveItem(item)}
                   className="inline-flex items-center gap-2 text-sm font-bold text-slate-950 uppercase tracking-wider hover:text-accent-700 transition"
                 >
-                  <span>Haber Küpürünü Oku</span>
+                  <span>Küpürü Oku</span>
                   <span className="transform group-hover:translate-x-1 transition">→</span>
                 </button>
-                {item.link && (
+                {item.links ? (
+                  item.links.slice(0, 1).map((lnk, idx) => (
+                    <a
+                      key={idx}
+                      href={lnk.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-500 hover:text-accent-700 transition border-l border-slate-200 pl-4"
+                    >
+                      <span>{lnk.label}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                  ))
+                ) : item.link ? (
                   <a
                     href={item.link}
                     target="_blank"
@@ -124,7 +215,7 @@ export default function PressGallery() {
                     <span>Dergiyi Oku</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                   </a>
-                )}
+                ) : null}
               </div>
             </div>
           </div>
@@ -144,7 +235,20 @@ export default function PressGallery() {
                   {activeItem.source}
                 </span>
                 <span className="text-slate-400 text-xs font-medium">{activeItem.date}</span>
-                {activeItem.link && (
+                {activeItem.links ? (
+                  activeItem.links.map((lnk, idx) => (
+                    <a
+                      key={idx}
+                      href={lnk.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-600 hover:text-accent-700 transition bg-white px-2.5 py-0.5 text-slate-800 rounded-md border border-slate-200 shadow-sm"
+                    >
+                      <span>{lnk.label}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                    </a>
+                  ))
+                ) : activeItem.link ? (
                   <a
                     href={activeItem.link}
                     target="_blank"
@@ -154,7 +258,7 @@ export default function PressGallery() {
                     <span>Dergiden Orijinal Link</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                   </a>
-                )}
+                ) : null}
               </div>
               <button
                 onClick={() => setActiveItem(null)}
@@ -192,45 +296,10 @@ export default function PressGallery() {
                     
                     <div className="h-0.5 w-16 bg-accent-500 rounded-full"></div>
                     
-                    <div className="space-y-4 text-slate-600 leading-relaxed font-light text-base">
-                      <p className="font-medium text-slate-800">
-                        İstanbul’da giderek artan araç sayısı ve yetersiz otopark altyapısı, şehir yaşamını zorlaştıran en önemli sorunlardan biri haline geldi. Özellikle kentin merkezi lokasyonlarında yaşanan park yeri krizine karşı TODER'den kritik bir kanun düzenlemesi teklifi sunuldu.
-                      </p>
-
-                      <p>
-                        Uzman kadrolara göre mevcut kapasiteler, İstanbul genelindeki araç yoğunluğunu taşımaktan oldukça uzak kalıyor. Bu durum, günlük hayatta sürücülerin uzun dakikalar boyunca park yeri aramasına, dolayısıyla gereksiz yakıt sarfiyatına ve zaman kaybına yol açarak kent içi trafiği içinden çıkılmaz hale getiriyor.
-                      </p>
-
-                      <div className="bg-slate-50/80 p-5 rounded-2xl border border-slate-100 space-y-3">
-                        <h3 className="font-serif font-bold text-slate-800 text-base">YENİ DÜZENLEME İLE NELER DEĞİŞECEK?</h3>
-                        <ul className="list-disc pl-5 space-y-1 text-sm">
-                          <li>Yeni inşa edilen binalardaki otopark zorunluluklarının sıkı denetlenmesi</li>
-                          <li>Mevcut pasif otopark alanlarının yüksek verimlilikle revize edilmesi</li>
-                          <li>Kamu ve özel sektör iş birlikleri (KÖİ) modellerinin yaygınlaştırılması</li>
-                          <li>Kapasite yönetimini güçlendirecek akıllı otopark yazılımlarının devreye alınması</li>
-                        </ul>
-                      </div>
-
-                      <h3 className="font-serif font-bold text-slate-800 text-lg pt-4">SORUN SADECE PARK YERİ DEĞİL</h3>
-                      <p>
-                        Otopark konusu salt araç park etmekten ibaret görülemez. Park yeri aramak amacıyla yollarda dolanan araçların trafikte oluşturduğu ek yük; karbon salınımını artırırken, çevre kirliliği ve stres gibi sosyo-ekonomik olumsuzlukları da tetikliyor.
-                      </p>
-
-                      <h3 className="font-serif font-bold text-slate-800 text-lg pt-4">TODER BAŞKANI DR. SELAMİ BALCI: "ARTIK AKILLI SİSTEM ŞART"</h3>
-                      
-                      <blockquote className="border-l-4 border-accent-600 bg-accent-50/30 p-5 rounded-r-2xl italic text-slate-700 font-serif text-base">
-                        "Otopark yönetimi artık klasik yöntemlerle çözülebilecek bir konu değil. Veri odaklı, teknolojik ve entegre sistemlerin devreye alınması gerekiyor. Doğru planlama ve sürdürülebilir yatırımlar ile şehir içi trafik ciddi anlamda rahatlatılabilir."
-                      </blockquote>
-
-                      <p>
-                        Dr. Selami Balcı, otopark yatırımlarının şehir planlama süreçlerinin ayrılmaz bir parçası olarak görülmesi gerektiğini ve kamu ile özel sektör iş birliklerinin bu alanda kritik bir kaldıraç rolü üstleneceğini vurguladı.
-                      </p>
-
-                      <h3 className="font-serif font-bold text-slate-800 text-lg pt-4">YENİ DÖNEM: VERİ VE TEKNOLOJİ ODAKLI OTOPARK YÖNETİMİ</h3>
-                      <p>
-                        Sektörün vizyoner liderlerine göre otopark işletmeciliği; akıllı yönlendirme yazılımları, anlık doluluk takibi ve entegre veri analitiği sayesinde stratejik bir şehir lojistiği yönetimine dönüşmektedir. Bu teknolojik dönüşümün Türkiye geneline yayılması gerektiğinin altı çiziliyor.
-                      </p>
-                    </div>
+                    <div 
+                      className="space-y-4 text-slate-600 leading-relaxed font-light text-base"
+                      dangerouslySetInnerHTML={{ __html: activeItem.transcription }}
+                    />
                   </div>
                 </div>
               </div>
