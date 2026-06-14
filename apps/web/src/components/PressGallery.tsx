@@ -29,6 +29,7 @@ const PRESS_ITEMS: PressItem[] = [
     excerpt: "İstanbul'daki otopark sorunu ve çözüm önerilerine yönelik hazırlanan yeni kanun önerisi hakkında TODER Yönetim Kurulu Başkanı Dr. Selami Balcı'nın açıklamaları ve değerlendirmeleri.",
     imagePath: "/press/lonca_dergisi_toder.jpg",
     link: "https://www.dergi.loncahaber.com/2026/05/17/182-sayi-mayis-2026-lonca-business-network-esnaf-bulteni-dergisi/#flipbook-df_815/15/",
+    fullWidth: true,
     transcription: `
       <p class="font-medium text-slate-800">
         İstanbul’da giderek artan araç sayısı ve yetersiz otopark altyapısı, şehir yaşamını zorlaştıran en önemli sorunlardan biri haline geldi. Özellikle kentin merkezi lokasyonlarında yaşanan park yeri krizine karşı TODER'den kritik bir kanun düzenlemesi teklifi sunuldu.
@@ -69,6 +70,7 @@ const PRESS_ITEMS: PressItem[] = [
     date: "Haziran 2026",
     excerpt: "ParkExpert Kurucusu Dr. Selami Balcı'nın AVM otopark işletmeciliğinde müşteri memnuniyeti, yapay zeka entegrasyonu, veri analitiği ve dijital dönüşüm vizyonunu paylaştığı kapsamlı röportaj.",
     imagePath: "/press/mall_report_roportaj.jpg",
+    fullWidth: true,
     links: [
       { label: "Web Makalesi", url: "https://mallreport.com.tr/2026/06/02/otoparkta-baslayan-memnuniyet-avmde-degere-donusuyor/?amp=1" },
       { label: "Dijital Dergi (Sayfa 64)", url: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/64/" },
