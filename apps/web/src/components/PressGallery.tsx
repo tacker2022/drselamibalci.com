@@ -22,10 +22,10 @@ interface PressItem {
 
 const PRESS_ITEMS: PressItem[] = [
   {
-    id: "lonca-dergisi-2026-haziran",
+    id: "lonca-dergisi-2026-mayis",
     title: "İstanbul’da Otopark Krizi Büyüyor: TODER’den Yeni Yasa Önerisi ve Kritik Uyarılar",
     source: "Lonca Dergisi",
-    date: "Haziran 2026",
+    date: "Mayıs 2026",
     excerpt: "İstanbul'daki otopark sorunu ve çözüm önerilerine yönelik hazırlanan yeni kanun önerisi hakkında TODER Yönetim Kurulu Başkanı Dr. Selami Balcı'nın açıklamaları ve değerlendirmeleri.",
     imagePath: "/press/lonca_dergisi_toder.jpg",
     link: "https://www.dergi.loncahaber.com/2026/05/17/182-sayi-mayis-2026-lonca-business-network-esnaf-bulteni-dergisi/#flipbook-df_815/15/",
