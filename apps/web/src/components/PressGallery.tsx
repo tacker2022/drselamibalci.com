@@ -68,7 +68,7 @@ const PRESS_ITEMS: PressItem[] = [
     source: "Mall Report",
     date: "Haziran 2026",
     excerpt: "ParkExpert Kurucusu Dr. Selami Balcı'nın AVM otopark işletmeciliğinde müşteri memnuniyeti, yapay zeka entegrasyonu, veri analitiği ve dijital dönüşüm vizyonunu paylaştığı kapsamlı röportaj.",
-    imagePath: "/dr-selami-balci.jpg",
+    imagePath: "/press/mall_report_roportaj.jpg",
     links: [
       { label: "Web Makalesi", url: "https://mallreport.com.tr/2026/06/02/otoparkta-baslayan-memnuniyet-avmde-degere-donusuyor/?amp=1" },
       { label: "Dijital Dergi (Sayfa 64)", url: "https://mallreport.com.tr/2026/06/03/haziran-2026/#flipbook-df_43425/64/" },
